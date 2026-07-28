@@ -66,12 +66,11 @@
 \newlength{\intraProjectListTopSep}
 \setlength{\intraProjectListTopSep}{0.2em}
 
-
-%=======================================================================
+% =======================================================================
 
 \titleformat{\section}      
 {\large\bfseries\raggedright}
-{}{0em}                    
+{}{0em}                     
 {}                          
 [{\color{CVBlue}\titlerule}]  
 \titlespacing*{\section}{0cm}{*1.6}{*1.2}
@@ -79,39 +78,28 @@
 % 统一图标盒子宽度的宏定义，保证标题绝对左对齐
 \newcommand{\secicon}[1]{\makebox[1.3em][l]{\color{CVBlue}#1}}
 
-
-
 \begin{document}
 
 \pagenumbering{gobble}
 
-
-
-%%%% 利用tikz来定位照片
-
+%%%% 利用tikz精确定位校徽Logo（左上角）
 \begin{tikzpicture}[remember picture, overlay] 
+    \node[anchor = north west] at ($(current page.north west)+(1.2cm,-1.0cm)$) {\includegraphics[height=1.8cm]{zju.png}};
+\end{tikzpicture}%
+%%%% 利用tikz精确定位个人照片（右上角）
+\begin{tikzpicture}[remember picture, overlay] 
+    \node[anchor = north east] at ($(current page.north east)+(-1.2cm,-1.0cm)$) {\includegraphics[height=2.8cm]{微信图片_20241117175117.jpg}};
+\end{tikzpicture}%
 
-    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{微信图片_20241117175117.jpg}};
+% 顶部个人信息居中（高度配合左右图片居中）
+\vspace*{-0.2cm}
+{\centerline{\LARGE\bfseries{张景博}}}
+\vspace{0.3em}
+{\centerline{\normalsize\faPhone\ 138-4408-7601}}
+\vspace{0.2em}
+{\centerline{\normalsize\faEnvelopeO\ \href{mailto:3240102172@zju.edu.cn}{3240102172@zju.edu.cn}}}
 
-  \end{tikzpicture}%
-
-  %%%% 利用tikz来定位学校Logo，这里只在第一页显示
-
-  \begin{tikzpicture}[remember picture, overlay] 
-
-    \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
-
-  \end{tikzpicture}%
-
-\centerline{\LARGE\bfseries{张景博}} 
-
-
-
-
-
-\centerline{\normalsize\faPhone\ 138-4408-7601}
-
-\centerline{\normalsize\faEnvelopeO\ \href{mailto:3240102172@zju.edu.cn}{3240102172@zju.edu.cn}}
+\vspace{0.6cm}
     
 \section{\secicon{\faGraduationCap}教育背景}    
 \textbf{浙江大学光电信息科学与工程} \hfill 2024.09 -- 至今\\[0.5em]
