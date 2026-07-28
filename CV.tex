@@ -17,6 +17,7 @@
 \usepackage{xeCJK}
 \usepackage{enumitem}
 \CJKsetecglue{} %% 取消中文与数字之间的间隙
+\usepackage[inline]{enumitem}
 
 
 %% 主文档字体设置
@@ -148,14 +149,14 @@
           \makebox[0.6\textwidth][c]{\textbf{浙江省政府奖学金、校三等奖学金}}%
           \makebox[0.2\textwidth][r]{\textbf{-}}
 \end{itemize}
-\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 专业技能}  
+\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 专业技能}   
 \begin{itemize}[parsep=0.5ex]
     \item \textbf{英语水平：} CET-4(638), CET-6(606), IELTS(7)
-    \item \textbf{专业技能：}
-    \begin{enumerate}[parsep=0ex, topsep=0.5ex]
-            \item 11111111
+    \item \textbf{专业知识：}%
+    \begin{enumerate*}[itemjoin={\\ \hspace*{2em}}] % 每次换行并缩进
         \item 熟练掌握 Zemax / LightTools 光学系统设计，公差分析、鬼像分析
-        \item 掌握 solid works/AutoCAD等设计工具，可完成机械结构建模及出图
-    \end{enumerate}
+        \item 掌握 SolidWorks / AutoCAD 等设计工具，可完成机械结构建模及出图
+    \end{enumerate*}
+\end{itemize}
 \end{itemize}
 \end{document}
