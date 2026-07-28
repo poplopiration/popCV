@@ -1,6 +1,5 @@
 \documentclass[11pt]{article}
 
-
 \setlength{\parindent}{0pt}
 \usepackage{xltxtra}
 \usepackage{hyperref}
@@ -18,154 +17,137 @@
 \usepackage{enumitem}
 \CJKsetecglue{} %% 取消中文与数字之间的间隙
 
-
-
 %% 主文档字体设置
 \setmainfont[
-    Path = fonts/Main/,
-    Extension = .otf,
-    BoldFont = texgyretermes-bold.otf, % 加粗字体
+    Path = fonts/Main/,
+    Extension = .otf,
+    BoldFont = texgyretermes-bold.otf, % 加粗字体
 ]{texgyretermes-regular.otf} % 正文字体
 
 % 中文字体设置
 \setCJKmainfont[
-    Path = fonts/hansans/,
-    Extension = .ttf,
-    BoldFont =NotoSansSC-Bold.ttf, % 加粗字体
+    Path = fonts/hansans/,
+    Extension = .ttf,
+    BoldFont = NotoSansSC-Bold.ttf, % 加粗字体
 ]{NotoSansSC-Regular.otf} % 正文字体
-
 
 \usepackage{relsize}
 \usepackage{xspace}
-
-% 使用 fontawesome（部分图标）
-\usepackage{fontawesome} 
+\usepackage{fontawesome} 
 
 % A4纸，上下左右边距
 \usepackage[
-    a4paper,
-    left=1.2cm,
-    right=1.2cm,
-    top=1.5cm,
-    bottom=1cm,
-    nohead
+    a4paper,
+    left=1.2cm,
+    right=1.2cm,
+    top=1.5cm,
+    bottom=1cm,
+    nohead
 ]{geometry}
 
 \renewcommand{\baselinestretch}{1.5} % 行间距设为1.5
 
 \usepackage{titlesec}
-\usepackage{enumitem}
 \setlist{noitemsep} % 取消列表项间的额外间距
-%\setlist{nosep} % 取消所有垂直间距
 \setlist[itemize]{topsep=0.25em, leftmargin=*}
-\setlist[enumerate]{topsep=0.25em, leftmargin=*}
+\setlist[enumerate]{topsep=0.25em, leftmargin=1.5em}
 
 % --- 用于控制【不同项目之间】的垂直距离 ---
 \newlength{\interProjectSpacing}
-\setlength{\interProjectSpacing}{0.9em} % <--- 在此调整项目之间的距离
+\setlength{\interProjectSpacing}{0.9em} 
 \newcommand{\projectsep}{\vspace{\interProjectSpacing}}
 
 % --- 用于控制【项目标题】与下方【项目描述】的距离 ---
 \newlength{\intraProjectTitleSep}
-\setlength{\intraProjectTitleSep}{0.4em} % <--- 在此调整标题和描述的距离
+\setlength{\intraProjectTitleSep}{0.4em} 
 \newcommand{\titlebreak}{\\[\intraProjectTitleSep]}
 
 % --- 用于控制【项目描述】与下方【要点列表】的距离 ---
 \newlength{\intraProjectListTopSep}
-\setlength{\intraProjectListTopSep}{0.2em} % <--- 在此调整描述和列表的距离
+\setlength{\intraProjectListTopSep}{0.2em} 
 
 % =======================================================================
 
-
-\titleformat{\section}         % 定制 \section 命令 
-{\large\bfseries\raggedright} % 将 section 标题设置为大号、粗体且左对齐
-{}{0em}                      % 可用于为所有 section 添加前缀（如“章节...”）
-{}                           % 可用于在标题前插入代码
-[{\color{CVBlue}\titlerule}]  % 在标题后插入一条横线
+\titleformat{\section}      
+{\large\bfseries\raggedright}
+{}{0em}                    
+{}                          
+[{\color{CVBlue}\titlerule}]  
 \titlespacing*{\section}{0cm}{*1.6}{*1.2}
 
-
+% 统一图标盒子宽度的宏定义，保证标题绝对左对齐
+\newcommand{\secicon}[1]{\makebox[1.3em][l]{\color{CVBlue}#1}}
 
 \begin{document}
 \pagenumbering{gobble}
 
 %%%% 利用tikz来定位照片
-\begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{微信图片_20241117175117.jpg}};
-  \end{tikzpicture}%
-  %%%% 利用tikz来定位学校Logo，这里只在第一页显示
-  \begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
-  \end{tikzpicture}%
-\centerline{\LARGE\bfseries{张景博}} 
+\begin{tikzpicture}[remember picture, overlay] 
+    \node[anchor = north east] at ($(current page.north east)+(-1.5cm,-1.2cm)$) {\includegraphics[height=3cm]{微信图片_20241117175117.jpg}};
+\end{tikzpicture}%
 
+%%%% 利用tikz来定位学校Logo（修正了坐标溢出问题）
+\begin{tikzpicture}[remember picture, overlay] 
+    \node[anchor = north west] at ($(current page.north west)+(0.8cm,-0.6cm)$) {\includegraphics[height=2.5cm]{zju.png}};
+\end{tikzpicture}%
 
+\centerline{\LARGE\bfseries{张景博}} 
+
+\vspace{0.5em}
 \centerline{\normalsize\faPhone\ 138-4408-7601}
 \centerline{\normalsize\faEnvelopeO\ \href{mailto:3240102172@zju.edu.cn}{3240102172@zju.edu.cn}}
-    
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
-\textbf{浙江大学光电信息科学与工程} \hfill 2024.9 -- 至今\\[0.5em] % 标题和正文间加一点距离
- GPA:4.58/5.0\quad\quad\quad\quad\quad\quad专业排名：3/90
+    
+\section{\secicon{\faGraduationCap}教育背景}    
+\textbf{浙江大学光电信息科学与工程} \hfill 2024.09 -- 至今\\[0.5em]
+GPA: 4.58/5.0 \quad\quad\quad\quad\quad\quad 专业排名：3/90
 \begin{itemize}[label={}, leftmargin=0pt, nosep]
-    \item 相关课程：C程序设计基础及实验(98)、离散数学(96)、微机原理与接口技术(90)、电磁场与电磁波(97)、应用光学(92)
+    \item 相关课程：C程序设计基础及实验(98)、离散数学(96)、微机原理与接口技术(90)、电磁场与电磁波(97)、应用光学(92)
 \end{itemize}
 
-\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
+\section{\secicon{\faUsers}项目经历}
 
-% --- 第一个项目 ---
-% 将标题行末尾的 \\ 替换为 \titlebreak 命令
 \textbf{98烂坑风控与可视化作战平台} \hfill 2024.08 -- 至今 \titlebreak
 项目描述：为维护cc98社区的讨论纯度、净化“心灵之约”版块风气，本项目旨在对“烂坑”进行科学、严谨的量化分析，并引入\textbf{大语言模型(LLM)}对烂坑帖进行\textbf{自动化情感极性与“离谱指数”标注}。
-% 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{数据与后端}：运用 \textbf{Go} 语言及 \textbf{GORM} 框架，实现对全站“烂坑”帖的7x24小时全天候\textbf{抓取}与\textbf{入库}(MySQL)。
-    \item \textbf{可视化前端}：采用原生 \textbf{HTML/CSS/JS} 构建了“烂坑”实时监控\textbf{作战大屏}。实现了坑主成分分析、挖坑热力图、年度烂坑王榜单等\textbf{可视化图表}，并通过 \textbf{AJAX} 异步刷新，确保数据洞察的实时性。
-    \item \textbf{核心产出}：全面掌握了从\textbf{数据采集、清洗、LLM标注到可视化分析}的“反烂坑”全链路技术。
+    \item \textbf{数据与后端}：运用 \textbf{Go} 语言及 \textbf{GORM} 框架，实现对全站“烂坑”帖的7x24小时全天候\textbf{抓取}与\textbf{入库}(MySQL)。
+    \item \textbf{可视化前端}：采用原生 \textbf{HTML/CSS/JS} 构建了“烂坑”实时监控\textbf{作战大屏}。实现了坑主成分分析、挖坑热力图、年度烂坑王榜单等\textbf{可视化图表}，并通过 \textbf{AJAX} 异步刷新，确保数据洞察的实时性。
+    \item \textbf{核心产出}：全面掌握了从\textbf{数据采集、清洗、LLM标注到可视化分析}的“反烂坑”全链路技术。
 \end{itemize}
 
-% 使用 \projectsep 命令来分隔两个项目
 \projectsep
 
-% --- 第二个项目 ---
 \textbf{AIGC驱动的超进化自动挖坑机 (Agent)} \hfill 2025.02 -- 至今 \titlebreak
 项目描述：为探索心灵版规的边界，以及测试版主锁沉反应速度的极限，本项目基于\textbf{多智能体协作(MCP)与LLM}技术，开发了一款能\textbf{自主“挖坑”与“互坑”}的AI Agent。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{并发与调度}：后端采用 \textbf{Go} 语言，充分利用 \textbf{Goroutine} 和 \textbf{Channel} 的高并发模型，模拟\textbf{用户并发在线}，执行定时挖坑，确保挖坑行动的\textbf{隐蔽性}与\textbf{高效性}。
-    \item \textbf{实时监控与响应}：运用 \textbf{WebSocket} 协议实现了对目标帖子的\textbf{实时监听与交互}。确保在烂坑被识破的第一时间，Agent能光速完成\textbf{“lktp”}或\textbf{反向钓鱼}操作，展现出极高的AI博弈能力。
-    \item \textbf{可视化GUI}：前端使用 \textbf{React} 框架构建了\textbf{后台管理的可视化面板 (Admin Panel)}。可一键下达挖坑指令、动态调整Agent的\textbf{指令}、并实时监控数据。
+    \item \textbf{并发与调度}：后端采用 \textbf{Go} 语言，充分利用 \textbf{Goroutine} 和 \textbf{Channel} 的高并发模型，模拟\textbf{用户并发在线}，执行定时挖坑，确保挖坑行动的\textbf{隐蔽性}与\textbf{高效性}。
+    \item \textbf{实时监控与响应}：运用 \textbf{WebSocket} 协议实现了对目标帖子的\textbf{实时监听与交互}。确保在烂坑被识破的第一时间，Agent能光速完成\textbf{“lktp”}或\textbf{反向钓鱼}操作，展现出极高的AI博弈能力。
+    \item \textbf{可视化GUI}：前端使用 \textbf{React} 框架构建了\textbf{后台管理的可视化面板 (Admin Panel)}。可一键下达挖坑指令、动态调整Agent的\textbf{指令}、并实时监控数据。
 \end{itemize}
 
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faList}\ 获奖情况}
+\section{\secicon{\faList}获奖情况}
 \begin{itemize}[label={}, leftmargin=0pt, itemindent=0pt, itemsep=0.3em]
-    \item \makebox[0.2\textwidth][l]{\textbf{2026.6}}%
-          \makebox[0.6\textwidth][c]{\textbf{第14届“宇瞳杯”光学设计赛道}}%
-          \makebox[0.2\textwidth][r]{\textbf{国家级三等奖}}
-          
-    \item \makebox[0.2\textwidth][l]{\textbf{2025.12}}%
-          \makebox[0.6\textwidth][c]{\textbf{大学生物理创新(理论)竞赛}}%
-          \makebox[0.2\textwidth][r]{\textbf{省级二等奖}}
-                    
-    \item \makebox[0.2\textwidth][l]{\textbf{2025.12}}%
-          \makebox[0.6\textwidth][c]{\textbf{浙江省政府奖学金、校三等奖学金}}%
-          \makebox[0.2\textwidth][r]{\textbf{-}}
+    \item \makebox[0.2\textwidth][l]{\textbf{2026.06}}%
+          \makebox[0.6\textwidth][c]{\textbf{第14届“宇瞳杯”光学设计赛道}}%
+          \makebox[0.2\textwidth][r]{\textbf{国家级三等奖}}
+          
+    \item \makebox[0.2\textwidth][l]{\textbf{2025.12}}%
+          \makebox[0.6\textwidth][c]{\textbf{大学生物理创新(理论)竞赛}}%
+          \makebox[0.2\textwidth][r]{\textbf{省级二等奖}}
+                    
+    \item \makebox[0.2\textwidth][l]{\textbf{2025.12}}%
+          \makebox[0.6\textwidth][c]{\textbf{浙江省政府奖学金、校三等奖学金}}%
+          \makebox[0.2\textwidth][r]{\textbf{-}}
 \end{itemize}
-\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 专业技能}  
+
+\section{\secicon{\faWrench}专业技能}  
 
 \begin{itemize}[parsep=0.5ex]
-
     \item \textbf{英语水平：} CET-4(638), CET-6(606), IELTS(7)
-
     \item \textbf{专业知识：}
-
     \begin{enumerate}[parsep=0ex, topsep=0.5ex]
-
-            \item 11111111
-
         \item 熟练掌握 Zemax / LightTools 光学系统设计，公差分析、鬼像分析
-
-        \item 掌握 solid works/AutoCAD等设计工具，可完成机械结构建模及出图
-
+        \item 掌握 SolidWorks / AutoCAD 等设计工具，可完成机械结构建模及出图
     \end{enumerate}
-
 \end{itemize}
+
 \end{document}
