@@ -79,17 +79,26 @@
 \newcommand{\secicon}[1]{\makebox[1.3em][l]{\color{CVBlue}#1}}
 
 \begin{document}
+
 \pagenumbering{gobble}
 
-%%%% 利用tikz来定位照片
-\begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north east] at ($(current page.north east)+(-1.5cm,-1.2cm)$) {\includegraphics[height=3cm]{微信图片_20241117175117.jpg}};
-\end{tikzpicture}%
 
-%%%% 利用tikz来定位学校Logo（修正了坐标溢出问题）
+
+%%%% 利用tikz来定位照片
+
 \begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north west] at ($(current page.north west)+(0.8cm,-0.6cm)$) {\includegraphics[height=2.5cm]{zju.png}};
-\end{tikzpicture}%
+
+    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
+
+  \end{tikzpicture}%
+
+  %%%% 利用tikz来定位学校Logo，这里只在第一页显示
+
+  \begin{tikzpicture}[remember picture, overlay] 
+
+    \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
+
+  \end{tikzpicture}%
 
 \centerline{\LARGE\bfseries{张景博}} 
 
