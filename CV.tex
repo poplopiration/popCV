@@ -1,6 +1,5 @@
 \documentclass[11pt]{article}
 
-
 \setlength{\parindent}{0pt}
 \usepackage{xltxtra}
 \usepackage{hyperref}
@@ -15,10 +14,11 @@
 \usetikzlibrary{calc}
 \usepackage{fontspec}
 \usepackage{xeCJK}
-\usepackage{enumitem}
-\CJKsetecglue{} %% 取消中文与数字之间的间隙
-\usepackage[inline]{enumitem}
 
+% 【核心修复】只保留这一行带 [inline] 参数的 enumitem，删除重复的 \usepackage{enumitem}
+\usepackage[inline]{enumitem} 
+
+\CJKsetecglue{} %% 取消中文与数字之间的间隙
 
 %% 主文档字体设置
 \setmainfont[
@@ -31,9 +31,8 @@
 \setCJKmainfont[
     Path = fonts/hansans/,
     Extension = .ttf,
-    BoldFont =NotoSansSC-Bold.ttf, % 加粗字体
+    BoldFont = NotoSansSC-Bold.ttf, % 加粗字体
 ]{NotoSansSC-Regular.otf} % 正文字体
-
 
 \usepackage{relsize}
 \usepackage{xspace}
@@ -54,9 +53,9 @@
 \renewcommand{\baselinestretch}{1.5} % 行间距设为1.5
 
 \usepackage{titlesec}
-\usepackage{enumitem}
+
+% 全局列表样式设置
 \setlist{noitemsep} % 取消列表项间的额外间距
-%\setlist{nosep} % 取消所有垂直间距
 \setlist[itemize]{topsep=0.25em, leftmargin=*}
 \setlist[enumerate]{topsep=0.25em, leftmargin=*}
 
@@ -76,15 +75,12 @@
 
 % =======================================================================
 
-
 \titleformat{\section}         % 定制 \section 命令 
 {\large\bfseries\raggedright} % 将 section 标题设置为大号、粗体且左对齐
-{}{0em}                      % 可用于为所有 section 添加前缀（如“章节...”）
+{}{0em}                      % 可用于为所有 section 添加前缀
 {}                           % 可用于在标题前插入代码
 [{\color{CVBlue}\titlerule}]  % 在标题后插入一条横线
 \titlespacing*{\section}{0cm}{*1.6}{*1.2}
-
-
 
 \begin{document}
 \pagenumbering{gobble}
@@ -92,20 +88,20 @@
 %%%% 利用tikz来定位照片
 \begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{微信图片_20241117175117.jpg}};
-  \end{tikzpicture}%
-  %%%% 利用tikz来定位学校Logo，这里只在第一页显示
-  \begin{tikzpicture}[remember picture, overlay] 
+\end{tikzpicture}%
+%%%% 利用tikz来定位学校Logo，这里只在第一页显示
+\begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
-  \end{tikzpicture}%
-\centerline{\LARGE\bfseries{张景博}} 
+\end{tikzpicture}%
 
+\centerline{\LARGE\bfseries{张景博}} 
 
 \centerline{\normalsize\faPhone\ 138-4408-7601}
 \centerline{\normalsize\faEnvelopeO\ \href{mailto:3240102172@zju.edu.cn}{3240102172@zju.edu.cn}}
     
 \section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
 \textbf{浙江大学\quad 光电信息科学与工程} \hfill 2024.9 -- 至今\\[0.5em] % 标题和正文间加一点距离
- GPA:4.58/5.0\quad\quad\quad\quad\quad\quad专业排名：3/90
+GPA:4.58/5.0\quad\quad\quad\quad\quad\quad专业排名：3/90
 \begin{itemize}[label={}, leftmargin=0pt, nosep]
     \item 相关课程：C程序设计基础及实验(98)、离散数学(96)、微机原理与接口技术(90)、电磁场与电磁波(97)、应用光学(92)
 \end{itemize}
@@ -113,17 +109,14 @@
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
 
 % --- 第一个项目 ---
-% 将标题行末尾的 \\ 替换为 \titlebreak 命令
 \textbf{98烂坑风控与可视化作战平台} \hfill 2024.08 -- 至今 \titlebreak
 项目描述：为维护cc98社区的讨论纯度、净化“心灵之约”版块风气，本项目旨在对“烂坑”进行科学、严谨的量化分析，并引入\textbf{大语言模型(LLM)}对烂坑帖进行\textbf{自动化情感极性与“离谱指数”标注}。
-% 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
     \item \textbf{数据与后端}：运用 \textbf{Go} 语言及 \textbf{GORM} 框架，实现对全站“烂坑”帖的7x24小时全天候\textbf{抓取}与\textbf{入库}(MySQL)。
     \item \textbf{可视化前端}：采用原生 \textbf{HTML/CSS/JS} 构建了“烂坑”实时监控\textbf{作战大屏}。实现了坑主成分分析、挖坑热力图、年度烂坑王榜单等\textbf{可视化图表}，并通过 \textbf{AJAX} 异步刷新，确保数据洞察的实时性。
     \item \textbf{核心产出}：全面掌握了从\textbf{数据采集、清洗、LLM标注到可视化分析}的“反烂坑”全链路技术。
 \end{itemize}
 
-% 使用 \projectsep 命令来分隔两个项目
 \projectsep
 
 % --- 第二个项目 ---
@@ -149,13 +142,15 @@
           \makebox[0.6\textwidth][c]{\textbf{浙江省政府奖学金、校三等奖学金}}%
           \makebox[0.2\textwidth][r]{\textbf{-}}
 \end{itemize}
+
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 专业技能}   
 \begin{itemize}[parsep=0.5ex]
     \item \textbf{英语水平：} CET-4(638), CET-6(606), IELTS(7)
     \item \textbf{专业知识：}%
-    \begin{enumerate*}[itemjoin={\\ \hspace*{2em}}] % 每次换行并缩进
+    \begin{enumerate*}[itemjoin={\\ \hspace*{5.5em}}] % 调大了缩进量，使换行后的第2点与第1点精准左对齐
         \item 熟练掌握 Zemax / LightTools 光学系统设计，公差分析、鬼像分析
         \item 掌握 SolidWorks / AutoCAD 等设计工具，可完成机械结构建模及出图
     \end{enumerate*}
 \end{itemize}
+
 \end{document}
