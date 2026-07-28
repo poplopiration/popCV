@@ -82,19 +82,19 @@
 
 \pagenumbering{gobble}
 
-%%%% 利用tikz精确定位校徽Logo（左上角）
+%%%% 精确定位校徽 Logo（完美匹配图1尺寸）
 \begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north west] at ($(current page.north west)+(1.2cm,-1.0cm)$) {\includegraphics[height=1.8cm]{zju.png}};
+    \node[anchor = north west] at ($(current page.north west)+(0.5cm,-0.3cm)$) {\includegraphics[height=3.6cm]{zju.png}};
 \end{tikzpicture}%
-%%%% 利用tikz精确定位个人照片（右上角）
+%%%% 精确定位个人照片（完美匹配图1尺寸）
 \begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north east] at ($(current page.north east)+(-1.2cm,-1.0cm)$) {\includegraphics[height=2.8cm]{微信图片_20241117175117.jpg}};
+    \node[anchor = north east] at ($(current page.north east)+(-1.2cm,-0.6cm)$) {\includegraphics[height=3.0cm]{微信图片_20241117175117.jpg}};
 \end{tikzpicture}%
 
-% 顶部个人信息居中（高度配合左右图片居中）
-\vspace*{-0.2cm}
+% 顶部个人信息居中（完美匹配图1对齐高度）
+\vspace*{0.2cm}
 {\centerline{\LARGE\bfseries{张景博}}}
-\vspace{0.3em}
+\vspace{0.4em}
 {\centerline{\normalsize\faPhone\ 138-4408-7601}}
 \vspace{0.2em}
 {\centerline{\normalsize\faEnvelopeO\ \href{mailto:3240102172@zju.edu.cn}{3240102172@zju.edu.cn}}}
