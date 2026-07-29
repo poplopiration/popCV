@@ -114,14 +114,13 @@ GPA：4.58/5.0
 % 将标题行末尾的 \\ 替换为 \titlebreak 命令
 \textbf{大相对孔径微光夜视观察物镜设计与优化} \hfill 2026.03 -- 2026.06
 \begin{itemize}[leftmargin=*, itemsep=0.3em, topsep=\intraProjectListTopSep]
-    \item \textbf{概述：} 本项目旨在设计一款高相对孔径、大视场的反远摄微光夜视观察物镜[cite: 1]。系统采用 5 片玻璃与 1 片 EP9000 塑料非球面（共 6 片透镜）架构[cite: 1]，在 61.2度 视场、F/1.199 条件下实现了 254mm 至无穷远 的清晰成像[cite: 1]。全系统总长小于 40mm[cite: 1]，透过率大于 90\%[cite: 1]，在 -40℃ ~ +65℃ 全温域内焦距变化率控制在 0.15\% 以内[cite: 1]，且奈奎斯特频率（38.4 lp/mm）下常温全视场 MTF 大于 0.4[cite: 1]。
+    \item \textbf{概述：} 本项目旨在设计一款高相对孔径、大视场的反远摄微光夜视观察物镜。系统共6片透镜，在 61.2度 视场、F数1.199 条件下实现了 254mm 至无穷远 的清晰成像。全系统总长小于 40mm，且奈奎斯特频率下常温全视场 MTF 大于 0.4。
     
     \item \textbf{职责：}
     \begin{enumerate}[label=(\arabic*), leftmargin=1.8em, itemsep=0.2em, topsep=0.2em]
-        \item 使用 \textbf{Zemax} 完成反远摄初始架构推导与像差校正，基于多重结构实现 -40℃ ~ +65℃ 被动消热化及 254mm 至无穷远 浮动调焦优化[cite: 1]。
-        \item 基于 \textbf{LightTools} 搭建光机三维模型，设定 1e-8 严苛阈值追迹[cite: 1]；通过 1995 膜系将杂散光比例压制至 0.031\%[cite: 1]，核心鬼像照度降至主信号十万分之一以下[cite: 1]，并在 90度 侧光下实现完全机械遮断[cite: 1]。
-        \item 对系统进行 2000 次 \textbf{Monte Carlo} 公差分析，针对瓶颈项（如 9-10 面偏心）精准收紧公差[cite: 1]，在 MTF 不低于 0.3 标准下实现 97.58\% 的工程量产良率[cite: 1]；完成镜片相对成本估算[cite: 1]。
-        \item 运用 \textbf{SolidWorks} 绘制镜筒、隔圈与压圈的三维建模与装配验证[cite: 1]，采用“定心装配+螺纹光面复合定位”结构[cite: 1]，并按照 ISO 10110 标准完成元件工程图纸输出[cite: 1]。
+        \item 使用 \textbf{Zemax} 分析系统像差、畸变、MTF、点列图及全视场成像表现并进行优化，评估不同视场下的显示清晰度与像质均匀性。
+        \item 基于 \textbf{LightTools} 搭建光机三维模型，进行光线追迹及杂散光分析。
+        \item 运用 \textbf{SolidWorks} 基于光学系统尺寸与装调需求，使用 SolidWorks 设计光机械结构，完成三维建模、装配验证及二维工程图输出。
     \end{enumerate}
 \end{itemize}
 
