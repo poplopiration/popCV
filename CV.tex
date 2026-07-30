@@ -103,7 +103,7 @@
     
 \section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
 \textbf{浙江大学光电信息科学与工程} \hfill 2024.09 -- 至今\\[0.05em]
-GPA：4.58/5.0    \hspace{3em}    排名：
+GPA：4.58/5.0    \hspace{3em}    排名：3/90
 \begin{itemize}[nosep]
     \item  相关课程：C程序设计基础及实验(98)、离散数学(96)、微机原理与接口技术(90)、电磁场与电磁波(97)、应用光学(92)、人工智能基础A(92)、电子电路基础及实验(93)
 \end{itemize}
@@ -128,12 +128,16 @@ GPA：4.58/5.0    \hspace{3em}    排名：
 \projectsep
 
 % --- 第二个项目 ---
-\textbf{AIGC驱动的超进化自动挖坑机 (Agent)} \hfill 2025.02 -- 至今 \titlebreak
-项目描述：为探索心灵版规的边界，以及测试版主锁沉反应速度的极限，本项目基于\textbf{多智能体协作(MCP)与LLM}技术，开发了一款能\textbf{自主“挖坑”与“互坑”}的AI Agent。
-\begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{并发与调度}：后端采用 \textbf{Go} 语言，充分利用 \textbf{Goroutine} 和 \textbf{Channel} 的高并发模型，模拟\textbf{用户并发在线}，执行定时挖坑，确保挖坑行动的\textbf{隐蔽性}与\textbf{高效性}。
-    \item \textbf{实时监控与响应}：运用 \textbf{WebSocket} 协议实现了对目标帖子的\textbf{实时监听与交互}。确保在烂坑被识破的第一时间，Agent能光速完成\textbf{“lktp”}或\textbf{反向钓鱼}操作，展现出极高的AI博弈能力。
-    \item \textbf{可视化GUI}：前端使用 \textbf{React} 框架构建了\textbf{后台管理的可视化面板 (Admin Panel)}。可一键下达挖坑指令、动态调整Agent的\textbf{指令}、并实时监控数据。
+\textbf{基于 PyTorch 的智能像差识别与交互式诊断系统} \hfill 2025.10 -- 2026.02
+\begin{itemize}[leftmargin=*, itemsep=0.3em, topsep=\intraProjectListTopSep]
+    \item \textbf{概述：} 为解决实际光学成像中混叠像差检测困难的问题，本项目基于 PyTorch 开发了一套兼具算法训练后端与 Web 图形界面的智能像差诊断系统[cite: 2, 3]。系统实现了从单/多标签分类训练、混合精度加速到可视化诊断与动态光路仿真的全流程闭环。
+    
+    \item \textbf{职责：}
+    \begin{enumerate}[label=(\arabic*), leftmargin=1.8em, itemsep=0.2em, topsep=0.2em]
+        \item 基于 \textbf{PyTorch} 独立构建模型训练引擎，集成 MobileNetV3、ResNet 等 9 种骨干网络；设计分层学习率优化策略与自适应分类头，针对混叠像差引入 损失函数实现多标签解耦识别。
+        \item 引入自动混合精度（AMP）与余弦退火学习率调度器，训练速度提升近 40\%[cite: 2]；编写评估模块，自动生成高分辨率损失/准确率曲线及混淆矩阵热力图，实现训练过程全程可视化[cite: 2]。
+        \item 运用 \textbf{Gradio} 开发 Web 诊断系统，集成结合 Zernike 项与 Zemax 操作数的光学专家知识库；基于 \textbf{Matplotlib} 几何光线追迹算法自主开发动态虚拟实验台[cite: 3]，实现球差、彗差等 5 种像差光路演化与点列图的实时动画渲染。
+    \end{enumerate}
 \end{itemize}
 
 
@@ -151,6 +155,7 @@ GPA：4.58/5.0    \hspace{3em}    排名：
     \begin{enumerate}[label=\arabic*., leftmargin=1.5em, parsep=0ex, topsep=0.5ex]
         \item 熟练掌握 Zemax / LightTools 光学系统设计，公差分析、鬼像分析
         \item 掌握 SolidWorks / AutoCAD 等设计工具，可完成机械结构建模及出图
+        \item 熟悉 pytorch
     \end{enumerate}
 \end{itemize}
 \end{document}
