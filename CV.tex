@@ -130,13 +130,13 @@ GPA：4.58/5.0    \hspace{3em}    排名：3/90
 % --- 第二个项目 ---
 \textbf{基于 PyTorch 的智能像差识别与交互式诊断系统} \hfill 2025.10 -- 2026.02
 \begin{itemize}[leftmargin=*, itemsep=0.3em, topsep=\intraProjectListTopSep]
-    \item \textbf{概述：} 为解决实际光学成像中混叠像差检测困难的问题，本项目基于 PyTorch 开发了一套兼具算法训练后端与 Web 图形界面的智能像差诊断系统[cite: 2, 3]。系统实现了从单/多标签分类训练、混合精度加速到可视化诊断与动态光路仿真的全流程闭环。
+    \item \textbf{概述：} 为解决实际情况混叠像差检测困难的问题，本项目基于 PyTorch 开发了一套兼具算法训练后端与 Web 图形界面的智能像差诊断系统。系统实现了单/多标签分类训练、混合精度加速以及可视化诊断与动态光路仿真。
     
     \item \textbf{职责：}
     \begin{enumerate}[label=(\arabic*), leftmargin=1.8em, itemsep=0.2em, topsep=0.2em]
-        \item 基于 \textbf{PyTorch} 独立构建模型训练引擎，集成 MobileNetV3、ResNet 等 9 种骨干网络；设计分层学习率优化策略与自适应分类头，针对混叠像差引入 损失函数实现多标签解耦识别。
-        \item 引入自动混合精度（AMP）与余弦退火学习率调度器，训练速度提升近 40\%[cite: 2]；编写评估模块，自动生成高分辨率损失/准确率曲线及混淆矩阵热力图，实现训练过程全程可视化[cite: 2]。
-        \item 运用 \textbf{Gradio} 开发 Web 诊断系统，集成结合 Zernike 项与 Zemax 操作数的光学专家知识库；基于 \textbf{Matplotlib} 几何光线追迹算法自主开发动态虚拟实验台[cite: 3]，实现球差、彗差等 5 种像差光路演化与点列图的实时动画渲染。
+        \item 基于 \textbf{PyTorch} 独立构建模型训练引擎，设计分层学习率优化策略与自适应分类头，针对混叠像差引入 损失函数实现多标签解耦识别。
+        \item 引入自动混合精度与余弦退火学习率调度器，编写评估模块，自动生成准确率曲线及混淆矩阵热力图。
+        \item 运用 \textbf{Gradio} 开发 Web 诊断系统，集成结合 Zernike 项与 Zemax 操作数的光学专家知识库；基于 \textbf{Matplotlib} 几何光线追迹算法自主开发动态虚拟实验台，实现球差、彗差等 5 种像差光路演化与点列图的实时动画渲染。
     \end{enumerate}
 \end{itemize}
 
